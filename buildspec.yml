@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo entered in install phase
+    finally:
+      - echo this will always run even if any install command fails
+  pre_build:
+    commands:
+      - echo entered in pre_build phase
+    finally:
+      - echo this will always run even if any pre_build command fails
+  build:
+    commands:
+      - echo entered in build phase
+      - echo build started on `date`
+      - go build
+    finally:
+      - echo this will always run even if build command fails
+  post_build:
+    commands:
+      - echo entered in post_build phase
+      - echo build completed on `date`
+    finally:
+      - echo this will always run even if any post_build command fails
